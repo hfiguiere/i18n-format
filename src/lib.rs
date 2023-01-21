@@ -22,18 +22,20 @@ use quote::quote;
 /// it will be replaced by a call to [`gettext!`].
 /// Specify `i18n_fmt` as a keyword for calls to xgettext.
 pub fn i18n_fmt(body: TokenStream) -> TokenStream {
+    i18n_fmt_impl("i18n_fmt", quote!(gettext!).into(), body)
+}
+
+
+fn i18n_fmt_impl(macro_name: &str, out_macro: TokenStream, body: TokenStream) -> TokenStream {
     let mut macro_block: TokenStream = quote!(
         use gettextrs::gettext;
     )
     .into();
-    macro_block.extend(body.into_iter().map(|tt| {
-        match tt {
-            TokenTree::Ident(ref i) => {
-                if &i.to_string() == "i18n_fmt" {
-                    return TokenTree::Group(Group::new(Delimiter::None, quote!(gettext!).into()));
-                }
+    macro_block.extend(body.into_iter().map(move |tt| {
+        if let TokenTree::Ident(ref i) = tt {
+            if &i.to_string() == macro_name {
+                return TokenTree::Group(Group::new(Delimiter::None, out_macro.clone()));
             }
-            _ => {}
         }
         tt
     }));
