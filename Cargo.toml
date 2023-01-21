@@ -1,7 +1,13 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
+
 [package]
 name = "i18n_format"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "A simple proc-macro to allow gettext! and xgettext to work together"
+keywords = [ "proc-macro", "i18n", "gettext" ]
 
 [lib]
 proc-macro = true

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
+
 use i18n_format::*;
 
 #[test]

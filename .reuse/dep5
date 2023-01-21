@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: i18n_format
+Upstream-Contact: Hubert Figuière <hub@figuiere.net>
+Source:
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
+
+Files: .gitignore
+License: CC0-1.0
+Copyright: Hubert Figuière
+
+Files: README.md
+License: MIT
+Copyright: Hubert Figuière
