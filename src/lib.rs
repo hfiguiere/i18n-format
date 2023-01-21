@@ -10,18 +10,18 @@ use quote::quote;
 /// a `!`.
 ///
 /// ```
-/// use i18n_format::i18n_format;
+/// use i18n_format::i18n_fmt;
 ///
 /// let number = 1;
-/// let s = i18n_format! {
-///     i18n_format("This is number {}, make it so !", number)
+/// let s = i18n_fmt! {
+///     i18n_fmt("This is number {}, make it so !", number)
 /// };
 /// ```
 ///
-/// `i18n_format` doesn't exist, but in the block for `i18n_format!`
+/// `i18n_fmt` doesn't exist, but in the block for `i18n_fmt!`
 /// it will be replaced by a call to [`gettext!`].
-/// Specify `i18n_format` as a keyword for calls to xgettext.
-pub fn i18n_format(body: TokenStream) -> TokenStream {
+/// Specify `i18n_fmt` as a keyword for calls to xgettext.
+pub fn i18n_fmt(body: TokenStream) -> TokenStream {
     let mut macro_block: TokenStream = quote!(
         use gettextrs::gettext;
     )
@@ -29,7 +29,7 @@ pub fn i18n_format(body: TokenStream) -> TokenStream {
     macro_block.extend(body.into_iter().map(|tt| {
         match tt {
             TokenTree::Ident(ref i) => {
-                if &i.to_string() == "i18n_format" {
+                if &i.to_string() == "i18n_fmt" {
                     return TokenTree::Group(Group::new(Delimiter::None, quote!(gettext!).into()));
                 }
             }
