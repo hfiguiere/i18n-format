@@ -6,10 +6,11 @@ name = "i18n-format"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-license-file = "LICENSES/MIT.txt"
 readme = "README.md"
 description = "A simple proc-macro to allow gettext! and xgettext to work together"
 keywords = [ "proc-macro", "i18n", "gettext" ]
+repository = "https://github.com/hfiguiere/i18n-format"
+docmentation = "https://docs.rs/i18n-format/"
 
 [lib]
 proc-macro = true

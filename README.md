@@ -61,3 +61,9 @@ Just add to the args the following to the `i18n.gettext` function:
 ```
 
 If `args` already exist, just add the items to the list.
+
+## License
+
+This crate is licensed under the MIT license.
+
+Author: Hubert Figuière <hub@figuiere.net>
