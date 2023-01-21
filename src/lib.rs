@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
 
+//! Implement the proc macros.
+//!
+#![doc = include_str!("../README.md")]
+
 use proc_macro::{Delimiter, Group, TokenStream, TokenTree};
 use quote::quote;
 
@@ -19,7 +23,7 @@ use quote::quote;
 /// ```
 ///
 /// `i18n_fmt` doesn't exist, but in the block for `i18n_fmt!`
-/// it will be replaced by a call to [`gettext!`].
+/// it will be replaced by a call to [`gettextrs::gettext!`].
 /// Specify `i18n_fmt` as a keyword for calls to xgettext.
 pub fn i18n_fmt(body: TokenStream) -> TokenStream {
     i18n_fmt_impl("i18n_fmt", quote!(gettext!).into(), body)
@@ -31,7 +35,8 @@ pub fn i18n_fmt(body: TokenStream) -> TokenStream {
 /// a `!`. It is like `i18n_fmt` but for calling `ngettext` in order to support
 /// plural forms.
 ///
-/// Refer to `i18n_fmt` for usage.
+/// Refer to [`i18n_fmt!`] for usage, with the arguments expected being the same as
+/// for [`gettextrs::ngettext!`].
 pub fn i18n_nfmt(body: TokenStream) -> TokenStream {
     i18n_fmt_impl("i18n_nfmt", quote!(ngettext!).into(), body)
 }
