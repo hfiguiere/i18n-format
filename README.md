@@ -1,4 +1,4 @@
-i18n_format
+i18n-format
 ===========
 
 `xgettext` is used to extract strings from source files. Unfortunately
