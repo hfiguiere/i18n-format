@@ -2,10 +2,12 @@
 # SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
 
 [package]
-name = "i18n_format"
+name = "i18n-format"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
+license-file = "LICENSES/MIT.txt"
+readme = "README.md"
 description = "A simple proc-macro to allow gettext! and xgettext to work together"
 keywords = [ "proc-macro", "i18n", "gettext" ]
 
