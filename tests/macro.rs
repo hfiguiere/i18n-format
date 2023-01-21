@@ -20,3 +20,15 @@ fn i18n_fmt_works() {
     };
     assert_eq!(&s3, "This third string still formatted");
 }
+
+#[test]
+fn i18n_nfmt_works() {
+    let s;
+    let s2;
+    i18n_nfmt! {
+        s = i18n_nfmt("This string is {}", "These strings are {}", 1, "formatted");
+        s2 = i18n_nfmt("This string is {}", "These strings are {}", 2, "formatted");
+    }
+    assert_eq!(&s, "This string is formatted");
+    assert_eq!(&s2, "These strings are formatted");
+}

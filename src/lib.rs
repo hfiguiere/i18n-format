@@ -25,10 +25,21 @@ pub fn i18n_fmt(body: TokenStream) -> TokenStream {
     i18n_fmt_impl("i18n_fmt", quote!(gettext!).into(), body)
 }
 
+#[proc_macro]
+/// Wrapper macro to use [`gettextrs::ngettext!`] in a way that allow xgettext
+/// to find strings for `.po` files as it doesn't support a keyword with
+/// a `!`. It is like `i18n_fmt` but for calling `ngettext` in order to support
+/// plural forms.
+///
+/// Refer to `i18n_fmt` for usage.
+pub fn i18n_nfmt(body: TokenStream) -> TokenStream {
+    i18n_fmt_impl("i18n_nfmt", quote!(ngettext!).into(), body)
+}
+
 
 fn i18n_fmt_impl(macro_name: &str, out_macro: TokenStream, body: TokenStream) -> TokenStream {
     let mut macro_block: TokenStream = quote!(
-        use gettextrs::gettext;
+        use gettextrs::*;
     )
     .into();
     macro_block.extend(body.into_iter().map(move |tt| {
