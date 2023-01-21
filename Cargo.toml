@@ -10,7 +10,8 @@ readme = "README.md"
 description = "A simple proc-macro to allow gettext! and xgettext to work together"
 keywords = [ "proc-macro", "i18n", "gettext" ]
 repository = "https://github.com/hfiguiere/i18n-format"
-docmentation = "https://docs.rs/i18n-format/"
+documentation = "https://docs.rs/i18n-format/"
+authors = ["Hubert Figuière <hub@figuiere.net>"]
 
 [lib]
 proc-macro = true
