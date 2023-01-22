@@ -34,10 +34,9 @@ let s = gettext!("This is number {}, make it so !", number);
 
 But the string will be extracted.
 
-`i18n_fmt` doesn't exist, but in the block for `i18n_fmt!`  it will be
-replaced by a call to `gettext!`.
-
-The macro [`i18n_nfmt!`] work the same way but instead calls `ngettext!`.
+`i18n_fmt` is just a placeholder in the block for `i18n_fmt!`, and it
+will be replaced by a call to `gettext!`. To call `ngettext!` just use
+`i18n_nfmt` as a placeholder inside the macro.
 
 ## Meson support
 

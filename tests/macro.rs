@@ -25,10 +25,22 @@ fn i18n_fmt_works() {
 fn i18n_nfmt_works() {
     let s;
     let s2;
-    i18n_nfmt! {
+    i18n_fmt! {
         s = i18n_nfmt("This string is {}", "These strings are {}", 1, "formatted");
         s2 = i18n_nfmt("This string is {}", "These strings are {}", 2, "formatted");
     }
     assert_eq!(&s, "This string is formatted");
     assert_eq!(&s2, "These strings are formatted");
+}
+
+#[test]
+fn i18n_mixed_fmt_works() {
+    let s;
+    let s2;
+    i18n_fmt! {
+        s = i18n_nfmt("This string is {}", "These strings are {}", 1, "formatted");
+        s2 = i18n_fmt("All the strings are {}", "formatted");
+    }
+    assert_eq!(&s, "This string is formatted");
+    assert_eq!(&s2, "All the strings are formatted");
 }
