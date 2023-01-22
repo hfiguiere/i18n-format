@@ -55,7 +55,7 @@ Just add to the args the following to the `i18n.gettext` function:
 ```meson
   args [
     '--keyword=i18n_fmt',
-    '--keyword=i18n_nfmt'
+    '--keyword=i18n_nfmt:1,2'
   ]
 ```
 

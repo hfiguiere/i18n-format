@@ -31,7 +31,7 @@ use quote::quote;
 /// Both `i18n_fmt` and `i18n_nfmt` are placeholders, in the block for
 /// `i18n_fmt!` either will be replaced by a call to
 /// [`gettextrs::gettext!`] or [`gettextrs::ngettext!`], respectively.
-/// Specify `i18n_fmt` and `i18n_nfmt` as keywords for calls to
+/// Specify `i18n_fmt` and `i18n_nfmt:1,2` as keywords for calls to
 /// xgettext.
 pub fn i18n_fmt(body: TokenStream) -> TokenStream {
     let mut macro_block: TokenStream = quote!(
