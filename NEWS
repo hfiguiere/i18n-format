@@ -1,3 +1,9 @@
+0.3.0 - 2025-02-09
+
+- Revamped completely to solve issue #1.
+- Now split in two crates. The proc macro crate is separate.
+- API compatible.
+
 0.2.0 - 2023-01-22
 
 - There is only one macro needed.

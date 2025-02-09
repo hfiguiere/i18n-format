@@ -2,18 +2,21 @@ i18n-format
 ===========
 
 `xgettext` is used to extract strings from source files. Unfortunately
-it doesn't support Rust. [The patch has been stuck in
-review](https://savannah.gnu.org/bugs/?56774) since 2019.
+it doesn't support Rust. [The patch just got merged in Jan
+2025](https://savannah.gnu.org/bugs/?56774). Then it will take a
+release and distros to ship it.
 
 Fortunately it almost work with Rust. You can specify the keyword
-`gettext` or whatever alias you use (I usually use `i18n`), but to use
-the formatting version `gettext!` it doesn't work because of the `!`.
+`gettext` or whatever alias you use (I usually use `i18n`).
 
-This crate provide wrapper macros to use [`gettextrs::gettext!`] and
-[`gettextrs::ngettext!`] in a way that allow `xgettext` to find
-strings for `.po` files as it doesn't support a keyword with a
-`!`. Specify `i18n_fmt` and `i18n_nfmt` as keywords for calls to `xgettext`, and
-then write your formatting gettext call like this:
+The `gettextrs` create doesn't offer a formatting version as the
+formatting macro `gettext!` was removed.
+
+These twi crates provide a way to have formatting macros with gettext
+and support the extraction, as the macro syntax is not compatible with
+xgettext that extract strings for `.po` files. Specify `i18n_fmt` and
+`i18n_nfmt` as keywords for calls to `xgettext`, and then write your
+formatting gettext call like this:
 
 ```
 use i18n_format::i18n_fmt;
@@ -32,11 +35,13 @@ let number = 1;
 let s = format!(gettext!("This is number {}, make it so !"), number);
 ```
 
-But the string will be extracted.
+The latter wouldn't even compile as `format!` expect a literal.
+
+And the string will be extracted.
 
 `i18n_fmt` is just a placeholder in the block for `i18n_fmt!`, and it
-will be replaced by a call to `gettext!`. To call `ngettext!` just use
-`i18n_nfmt` as a placeholder inside the macro.
+will be replaced by another macro that will call `gettext!`. To call
+`ngettext!` just use `i18n_nfmt` as a placeholder inside the macro.
 
 ## Meson support
 
@@ -60,6 +65,20 @@ Just add to the args the following to the `i18n.gettext` function:
 ```
 
 If `args` already exist, just add the items to the list.
+
+## Future
+
+This version of the crate has been reworked to work around a breakage
+in gettextrs. See [Issue
+1](https://github.com/hfiguiere/i18n-format/issues/1)
+
+It turns out that two thing might happen soon:
+
+1. gettext [will have native Rust
+   support](https://github.com/gettext-rs/gettext-rs/issues/86#issuecomment-2628889816).
+2. gettextrs might offer the formatting macros.
+
+When this happens I hope these crates will be obsolete.
 
 ## License
 

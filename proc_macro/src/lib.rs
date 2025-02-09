@@ -8,10 +8,9 @@ use proc_macro::{Delimiter, Group, TokenStream, TokenTree};
 use quote::quote;
 
 #[proc_macro]
-/// Wrapper macro to use [`gettextrs::gettext!`] or
-/// [`gettextrs::ngettext!`] in a way that allow xgettext to find
-/// strings for `.po` files as it doesn't support a keyword with a
-/// `!`.
+/// Wrapper macro to use allow formatting with gettext and ngettext in
+/// a way that allow xgettext to find strings for `.po` files as it
+/// doesn't support a keyword with a `!`.
 ///
 /// ```
 /// use i18n_format::i18n_fmt;
@@ -29,9 +28,9 @@ use quote::quote;
 ///
 /// Both `i18n_fmt` and `i18n_nfmt` are placeholders, in the block for
 /// `i18n_fmt!` either will be replaced by a call to
-/// [`gettextrs::gettext!`] or [`gettextrs::ngettext!`], respectively.
-/// Specify `i18n_fmt` and `i18n_nfmt:1,2` as keywords for calls to
-/// xgettext.
+/// [`i18n-format::i18n_fmt_impl`] or [`i18n-format::i18n_nfmt_impl`],
+/// respectively.  Specify `i18n_fmt` and `i18n_nfmt:1,2` as keywords
+/// for calls to xgettext.
 pub fn i18n_fmt(body: TokenStream) -> TokenStream {
     let mut macro_block: TokenStream = quote!(
         use i18n_format::*;
