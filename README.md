@@ -43,6 +43,12 @@ And the string will be extracted.
 will be replaced by another macro that will call `gettext!`. To call
 `ngettext!` just use `i18n_nfmt` as a placeholder inside the macro.
 
+## Error
+
+The underlying [`formatx::formatx!`] macro will panic in some
+case. When it returns an error, `i18n_format` will output the error
+instead of the string.
+
 ## Meson support
 
 The original use of this crate is with gtk-rs apps built with

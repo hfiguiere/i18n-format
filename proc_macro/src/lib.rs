@@ -31,6 +31,7 @@ use quote::quote;
 /// [`i18n-format::i18n_fmt_impl`] or [`i18n-format::i18n_nfmt_impl`],
 /// respectively.  Specify `i18n_fmt` and `i18n_nfmt:1,2` as keywords
 /// for calls to xgettext.
+///
 pub fn i18n_fmt(body: TokenStream) -> TokenStream {
     let mut macro_block: TokenStream = quote!(
         use i18n_format::*;

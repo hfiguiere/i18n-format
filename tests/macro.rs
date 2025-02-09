@@ -44,3 +44,13 @@ fn i18n_mixed_fmt_works() {
     assert_eq!(&s, "This string is formatted");
     assert_eq!(&s2, "All the strings are formatted");
 }
+
+#[test]
+fn i18n_fmt_error() {
+    let s;
+    i18n_fmt! {
+        // This triggers an error in formatx.
+        s = i18n_nfmt("This string is {} {}", "These strings are {} {}", 1, "formatted");
+    }
+    assert_eq!(&s, "missing placeholders values for: 1 (positional)");
+}
