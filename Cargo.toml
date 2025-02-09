@@ -1,23 +1,9 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
-
 [package]
 name = "i18n-format"
-version = "0.2.0"
+version = "0.1.0"
 edition = "2021"
-license = "MIT"
-readme = "README.md"
-description = "A simple proc-macro to allow gettext! and xgettext to work together"
-keywords = [ "proc-macro", "i18n", "gettext" ]
-repository = "https://github.com/hfiguiere/i18n-format"
-documentation = "https://docs.rs/i18n-format/"
-authors = ["Hubert Figuière <hub@figuiere.net>"]
-
-[lib]
-proc-macro = true
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+formatx = "0.2.3"
 gettext-rs = { version = "0.7.0", features = [ "gettext-system" ] }
-quote = "1.0"
+i18n-format-macro = { path = "proc_macro" }

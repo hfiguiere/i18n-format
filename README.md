@@ -25,11 +25,11 @@ let s = i18n_fmt! {
 ```
 
 is equivalent to
-```
+```ignore
 use gettextrs::gettext;
 
 let number = 1;
-let s = gettext!("This is number {}, make it so !", number);
+let s = format!(gettext!("This is number {}, make it so !"), number);
 ```
 
 But the string will be extracted.
