@@ -3,9 +3,9 @@
 
 #![doc = include_str!("../README.md")]
 
-pub use i18n_format_macro::i18n_fmt;
 pub use formatx::formatx;
 pub use gettextrs::{gettext, ngettext};
+pub use i18n_format_macro::i18n_fmt;
 
 /// Implement i18n_fmt. This is not meant to be called directly
 /// but rather by the proc-macro `i18n-fmt`.

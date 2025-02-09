@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
 
 use i18n_format::*;
-use i18n_format_macro::*;
 
 #[test]
 fn i18n_fmt_works() {
