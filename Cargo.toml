@@ -16,4 +16,4 @@ authors = ["Hubert Figuière <hub@figuiere.net>"]
 [dependencies]
 formatx = "0.2.3"
 gettext-rs = { version = "0.7.0", features = [ "gettext-system" ] }
-i18n-format-macro = { path = "proc_macro" }
+i18n-format-macro = { version = "0.3.0", path = "proc_macro" }
