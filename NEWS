@@ -1,3 +1,10 @@
+0.4.0 - 2025-12-25
+
+- API: use the `legacy` feature to keep the old API around.
+- API: With gettext 0.24 and later you can use the macros
+  `i18n_format!` and `i18n_nformat!`.
+- The proc-macro crate is only used with the `legacy` feature.
+
 0.3.0 - 2025-02-09
 
 - Revamped completely to solve issue #1.
