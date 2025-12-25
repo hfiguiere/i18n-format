@@ -7,15 +7,18 @@ pub use formatx::formatx;
 pub use gettextrs::{gettext, ngettext};
 pub use i18n_format_macro::i18n_fmt;
 
-/// Implement i18n_fmt. This is not meant to be called directly
-/// but rather by the proc-macro `i18n-fmt`.
+/// Format a string with internationalization of the format string.
+/// Use the same formating rules as [`formatx::formatx!`].
+///
+/// This is the implementation when using the proc-macro `i18n-fmt`
+/// with feature legacy.
 ///
 /// # Panic
 ///
 /// The output code will panic under the same condition as
 /// [`formatx::formatx!`]
 #[macro_export]
-macro_rules! i18n_fmt_impl {
+macro_rules! i18n_format {
     ($template:expr) => {
         format!("{}", $crate::gettext($template))
     };
@@ -24,15 +27,19 @@ macro_rules! i18n_fmt_impl {
     };
 }
 
-/// Implement i18n_nfmt. This is not meant to be called directly
-/// but rather by the proc-macro `i18n-fmt`.
+/// Format a string with internationalization of the format string,
+/// with plurals. Use the same formating rules as
+/// [`formatx::formatx!`].
+///
+/// This is the implementation when using the proc-macro `i18n-fmt`
+/// with feature legacy.
 ///
 /// # Panic
 ///
 /// The output code will panic under the same condition as
 /// [`formatx::formatx!`]
 #[macro_export]
-macro_rules! i18n_nfmt_impl {
+macro_rules! i18n_nformat {
     ($templates:expr, $templatep:expr, $count:expr) => {
         format!("{}", $crate::ngettext($templates, $templatep, $count))
     };

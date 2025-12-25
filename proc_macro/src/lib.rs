@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
+// SPDX-FileCopyrightText: (c) 2023-2025 Hubert Figuière
 
 //! Implement the proc macros.
 //!
@@ -28,7 +28,7 @@ use quote::quote;
 ///
 /// Both `i18n_fmt` and `i18n_nfmt` are placeholders, in the block for
 /// `i18n_fmt!` either will be replaced by a call to
-/// [`i18n-format::i18n_fmt_impl`] or [`i18n-format::i18n_nfmt_impl`],
+/// [`i18n-format::i18n_format`] or [`i18n-format::i18n_nformat`],
 /// respectively.  Specify `i18n_fmt` and `i18n_nfmt:1,2` as keywords
 /// for calls to xgettext.
 ///
@@ -41,10 +41,10 @@ pub fn i18n_fmt(body: TokenStream) -> TokenStream {
         if let TokenTree::Ident(ref i) = tt {
             match i.to_string().as_str() {
                 "i18n_fmt" => {
-                    return TokenTree::Group(Group::new(Delimiter::None, quote!(i18n_fmt_impl!).into()))
+                    return TokenTree::Group(Group::new(Delimiter::None, quote!(i18n_format!).into()))
                 }
                 "i18n_nfmt" => {
-                    return TokenTree::Group(Group::new(Delimiter::None, quote!(i18n_nfmt_impl!).into()))
+                    return TokenTree::Group(Group::new(Delimiter::None, quote!(i18n_nformat!).into()))
                 }
                 _ => {}
             }
