@@ -3,11 +3,11 @@
 
 [package]
 name = "i18n-format"
-version = "0.3.0"
+version = "0.4.0"
 edition = "2021"
 license = "MIT"
 readme = "README.md"
-description = "A simple macro to allow formatting with gettext while keeping xgettext to work"
+description = "A simple macro to allow formatting with gettext with a workaround for older xgettext"
 keywords = [ "proc-macro", "i18n", "gettext" ]
 repository = "https://github.com/hfiguiere/i18n-format"
 documentation = "https://docs.rs/i18n-format/"
@@ -16,4 +16,7 @@ authors = ["Hubert Figuière <hub@figuiere.net>"]
 [dependencies]
 formatx = "0.2.3"
 gettext-rs = { version = "0.7.0", features = [ "gettext-system" ] }
-i18n-format-macro = { version = "0.3.0", path = "proc_macro" }
+i18n-format-macro = { version = "0.4.0", path = "proc_macro", optional = true }
+
+[features]
+legacy = [ "i18n-format-macro" ]

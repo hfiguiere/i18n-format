@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: (c) 2023 Hubert Figuière
 
+#![cfg(feature = "legacy")]
+
 use i18n_format::*;
+use i18n_format_macro::i18n_fmt;
 
 #[test]
 fn i18n_fmt_works() {

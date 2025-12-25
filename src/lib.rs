@@ -5,6 +5,7 @@
 
 pub use formatx::formatx;
 pub use gettextrs::{gettext, ngettext};
+#[cfg(feature = "legacy")]
 pub use i18n_format_macro::i18n_fmt;
 
 /// Format a string with internationalization of the format string.

@@ -18,7 +18,7 @@ xgettext that extract strings for `.po` files. Specify `i18n_fmt` and
 `i18n_nfmt` as keywords for calls to `xgettext`, and then write your
 formatting gettext call like this:
 
-```
+```ignore
 use i18n_format::i18n_fmt;
 
 let number = 1;
