@@ -15,7 +15,7 @@ code.
 To use the crate just add the following to your Cargo.toml
 
 ```toml
-i18n-format = "0.4.0"
+i18n-format = "0.5.0"
 ```
 
 With this crate, getting a formatted localised string is as simple as
@@ -47,7 +47,7 @@ you can use the legacy mode.
 The legacy mode is enabled with the `legacy` crate feature.
 
 ```toml
-i18n-format = { version = "0.4.0", features = "legacy" }
+i18n-format = { version = "0.5.0", features = "legacy" }
 ```
 
 `xgettext` is used to extract strings from source files. Unfortunately
@@ -153,8 +153,7 @@ Now that native Rust support exist in gettext 0.24, the only thing
 remaining is the formatting macros (unless you use the `legacy`
 feature).
 
-When gettextrs get support for this happens, these crates will be
-obsolete.
+When gettextrs get support for this, these crates will be obsolete.
 
 ## License
 

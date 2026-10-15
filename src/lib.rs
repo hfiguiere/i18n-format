@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// SPDX-FileCopyrightText: (c) 2025 Hubert Figuière
+// SPDX-FileCopyrightText: (c) 2025-2026 Hubert Figuière
 
 #![doc = include_str!("../README.md")]
 
@@ -24,7 +24,7 @@ macro_rules! i18n_format {
         format!("{}", $crate::gettext($template))
     };
     ($template:expr, $($values:tt)*) => {
-        format!("{}", $crate::formatx!($crate::gettext($template), $($values)*).unwrap_or_else(|err| err.message()))
+        format!("{}", $crate::formatx!($crate::gettext($template), $($values)*).unwrap_or_else(|err| err.to_string()))
     };
 }
 
@@ -45,6 +45,6 @@ macro_rules! i18n_nformat {
         format!("{}", $crate::ngettext($templates, $templatep, $count))
     };
     ($templates:expr, $templatep:expr, $count:expr, $($values:tt)*) => {
-        format!("{}", $crate::formatx!($crate::ngettext($templates, $templatep, $count), $($values)*).unwrap_or_else(|err| err.message()))
+        format!("{}", $crate::formatx!($crate::ngettext($templates, $templatep, $count), $($values)*).unwrap_or_else(|err| err.to_string()))
     };
 }
